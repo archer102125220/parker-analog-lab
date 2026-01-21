@@ -45,6 +45,7 @@
     "@angular/build": "^21.0.0",
     "@angular/cli": "^21.0.0",
     "@angular/compiler-cli": "^21.0.0",
+    "@types/node": "^25.0.9",
     "h3": "^1.13.0",
     "jsdom": "^22.0.0",
     "typescript": "~5.9.0",
