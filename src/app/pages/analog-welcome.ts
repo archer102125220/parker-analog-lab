@@ -209,6 +209,7 @@ import { Component } from '@angular/core';
   template: `
     <main class="main">
       <section class="intro-section">
+        <p>test</p>
         <div class="intro-container">
           <img
             class="intro-logo"
