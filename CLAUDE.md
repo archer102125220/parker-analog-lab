@@ -21,6 +21,7 @@ You MUST:
 ### TypeScript
 - NEVER use `any` - use generics, `unknown`, or precise types
 - Use `as unknown as Type` for assertions, NEVER `as any`
+- Use **inline type imports**: `import { Component, type OnInit } from '@angular/core'`
 
 ### Runtime Data Validation (Strict)
 - **String**: Use `if (str !== '')` instead of `if (str)`
@@ -38,14 +39,80 @@ You MUST:
 - **State**: `[css-is-active='true']` (HTML attr with `css-` prefix)
 - **CSS variables**: `--editor_height` (underscore `_`)
 
-#### HTML Attributes
+#### HTML Attributes (Angular Style)
 - **State**: `[css-is-active='true']` (Starts with `css-`)
-- **Binding**: `[attr.css-is-active]="isActive ? 'true' : null"` (Angular style binding)
+- **Binding**: `[attr.css-is-active]="isActive() ? 'true' : null"` (Angular signal binding)
 
 ### Page Root Class
 - Page: `[name]_page` (e.g., `.hooks_test_page`)
 - Component: `[name]` (e.g., `.image_upload`)
 - Each page MUST have unique root class
+
+### CSS Property Order
+1. Positioning (position, top, z-index)
+2. Display & Box Model (display, flex, width, margin, padding)
+3. Typography (font, color)
+4. Visual (background, box-shadow)
+5. Animation (transition)
+6. Misc (cursor)
+
+### File Organization
+- **Global styles**: `src/styles.css`
+- **Component styles**: Co-located `.scss` file
+- NEVER create `_shared` directories
+- NEVER share CSS class names between pages
+- For shared DOM: create component with `pageClassName` input signal
+
+### Angular Signals Policy (⚠️ CRITICAL)
+- **Prioritize Angular Signals APIs**, avoid legacy decorator-based patterns
+- ✅ **Angular 21 Stable Signals**: `signal()`, `computed()`, `effect()`, `input()`, `input.required()`, `output()`, `model()`, `model.required()`, `viewChild()`, `viewChildren()`, `contentChild()`, `contentChildren()`, `toSignal()`, `toObservable()`
+- ✅ **Signal Selection Guidelines**:
+  | Scenario | Use |
+  |----------|-----|
+  | Reactive state | `signal()` |
+  | Derived values | `computed()` |
+  | Side effects | `effect()` |
+  | Observable → Signal | `toSignal()` |
+  | Component input | `input()` / `input.required()` |
+  | Two-way binding | `model()` |
+  | Event emission | `output()` |
+  | DOM query | `viewChild()` / `viewChildren()` |
+- ❌ **Avoid**:
+  - `@Input()` / `@Output()` decorators → use `input()` / `output()`
+  - `@ViewChild()` / `@ContentChild()` → use `viewChild()` / `contentChild()`
+  - `ngOnChanges` for prop sync → use `computed()` from `input()` signal
+  - Excessive `BehaviorSubject` streams → use `signal()`
+  - Any API marked `ɵ` (internal) or "Developer Preview"
+
+### Angular Signals 深度檢查政策 (⚠️ CRITICAL)
+
+When reviewing or refactoring Angular components, you MUST check for these anti-patterns:
+
+| Anti-Pattern | Correct Pattern | Priority |
+|--------------|----------------|----------|
+| `ngOnChanges` syncing `@Input` → state | `computed()` from `input()` signal | 🔴 High |
+| `@ViewChild` / `@ContentChild` decorators | `viewChild()` / `contentChild()` | 🔴 High |
+| `@Input()` / `@Output()` decorators | `input()` / `output()` signals | 🔴 High |
+| `BehaviorSubject` for simple state | `signal()` | 🟡 Medium |
+| `Observable` without `toSignal()` in template | `toSignal()` | 🟡 Medium |
+
+**Related Skills**:
+- `.agent/skills/angular-signals-selection/SKILL.md` - Signal selection decision tree
+- `.agent/skills/css-naming-convention/SKILL.md` - CSS naming guide
+
+### Build & Dev Tooling (Vite + Analog) (⚠️ CRITICAL)
+- **Dev**: `yarn dev` (Vite dev server)
+- **Build**: `yarn build`
+- **Preview**: `yarn preview`
+- **Test**: `yarn test` (Vitest)
+- **Do NOT use** `ng serve` or `ng build` directly
+
+### Lint Disable Comments (⚠️ CRITICAL)
+- **NEVER** add `eslint-disable`, `@ts-ignore`, `@ts-expect-error`, or similar comments without **explicit user instruction**
+- When encountering lint warnings/errors:
+  1. Report the warning to the user
+  2. Wait for user's explicit instruction to add a disable comment
+  3. Only then add the disable comment with proper justification
 
 ---
 
