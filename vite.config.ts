@@ -14,7 +14,25 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     analog({
-      inlineStylesExtension: 'scss'
+      inlineStylesExtension: 'scss',
+      nitro: {
+        experimental: {
+          openAPI: true
+        },
+        openAPI: {
+          // 修改預設路徑，避免與前端 SPA 路由衝突
+          route: '/api/_openapi.json',
+          ui: {
+            swagger: { route: '/api/_swagger' },
+            scalar: { route: '/api/_scalar' }
+          },
+          meta: {
+            title: 'Analog REST API',
+            description: 'API documentation for Parker Analog Lab',
+            version: '1.0.0',
+          }
+        }
+      }
     }),
     tailwindcss()
   ],
