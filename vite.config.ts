@@ -13,7 +13,9 @@ export default defineConfig(({ mode }) => ({
     mainFields: ['module'],
   },
   plugins: [
-    analog(),
+    analog({
+      inlineStylesExtension: 'scss'
+    }),
     tailwindcss()
   ],
   test: {
