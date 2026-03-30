@@ -8,6 +8,7 @@
   "scripts": {
     "ng": "ng",
     "dev": "vite",
+    "dev:https": "HTTPS=true vite",
     "start": "yarn dev",
     "build": "vite build",
     "watch": "vite build --watch",
@@ -50,6 +51,7 @@
     "jsdom": "^22.0.0",
     "typescript": "~5.9.0",
     "vite": "^7.0.0",
+    "vite-plugin-mkcert": "^1.17.10",
     "vite-tsconfig-paths": "^4.2.0",
     "vitest": "^4.0.0"
   },
