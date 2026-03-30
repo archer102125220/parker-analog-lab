@@ -7,11 +7,13 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   template: `
     <footer class="footer">
       <div class="footer-inner">
-        <p class="footer-text">© 2026 Parker Chen. All rights reserved.</p>
+        <p class="footer-text">© {{ currentYear }} Parker Chen. All rights reserved.</p>
       </div>
     </footer>
   `,
   styleUrl: './footer.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FooterComponent {}
+export class FooterComponent {
+  readonly currentYear = new Date().getFullYear();
+}
