@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { HeaderModule } from '../components/Layout/Header/header.module';
-import { FooterModule } from '../components/Layout/Footer/footer.module';
+import { HeaderModule } from '@/app/components/Layout/Header/header.module';
+import { FooterModule } from '@/app/components/Layout/Footer/footer.module';
 
 @Component({
-  selector: 'app-main-layout',
+  selector: 'main-layout',
   standalone: true,
   imports: [HeaderModule, FooterModule],
   template: `
