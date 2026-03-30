@@ -1,0 +1,45 @@
+.header {
+  width: 100%;
+  border-bottom: 1px solid var(--app-border-color);
+  background-color: var(--app-header-bg);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+
+  &-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+  }
+
+  &-logo-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+  }
+
+  &-logo {
+    text-decoration: none;
+    color: var(--app-text-color);
+    font-weight: 700;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--app-primary-color);
+      
+      .header-logo-icon {
+        transform: scale(1.1) rotate(-5deg);
+      }
+    }
+  }
+}

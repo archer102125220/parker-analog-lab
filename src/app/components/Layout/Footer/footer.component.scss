@@ -1,0 +1,20 @@
+.footer {
+  width: 100%;
+  border-top: 1px solid var(--app-border-color);
+  background-color: var(--app-footer-bg);
+  padding: 32px 0;
+  margin-top: auto;
+
+  &-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+  }
+
+  &-text {
+    font-size: 0.875rem;
+    color: var(--app-text-muted);
+    margin: 0;
+  }
+}
