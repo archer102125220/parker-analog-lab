@@ -33,16 +33,18 @@ export class ScrollFetchComponent implements AfterViewInit, OnDestroy {
   @Input() refreshDisable = true;
   @Input() set loading(val: boolean) {
     this._loading = val;
-    // // Watch loading state change to auto-stop refresh animation
+    // Auto-stop refresh animation when loading becomes false
     if (!val) {
-      this.duration.set(300);
+      this.duration.set(500); // 設置 500ms 過度動畫時間
+      // 立即將 distance 歸零，觸發 CSS 轉場動畫
+      this.moveDistance.set(0);
+      this.refreshIconRotate.set(0);
+
       setTimeout(() => {
         this.isShowRefreshIcon.set(false);
-        this.moveDistance.set(0);
-        this.refreshIconRotate.set(0);
         this.isPulling.set(false);
         this.refreshing.set(false);
-      }, 300);
+      }, 500);
     }
   }
   get loading(): boolean { return this._loading; }
