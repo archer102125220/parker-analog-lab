@@ -1,0 +1,8 @@
+{
+  "header": {
+    "title": "Parker's Analog Lab"
+  },
+  "footer": {
+    "copyright": "© {{ year }} Parker Chen. All rights reserved."
+  }
+}

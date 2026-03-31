@@ -42,4 +42,45 @@
       }
     }
   }
+
+  &-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &-lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--app-text-muted) !important;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--app-text-color) !important;
+    }
+
+    &-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+    }
+
+    &-arrow {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &-lang-menu-item {
+    &[css-is-active='true'] {
+      color: var(--app-primary-color);
+      font-weight: 600;
+    }
+  }
 }
+

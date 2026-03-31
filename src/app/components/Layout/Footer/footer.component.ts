@@ -7,7 +7,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   template: `
     <footer class="footer">
       <div class="footer-inner">
-        <p class="footer-text">© {{ currentYear }} Parker Chen. All rights reserved.</p>
+        <p class="footer-text">{{ 'footer.copyright' | transloco : { year: currentYear } }}</p>
       </div>
     </footer>
   `,
@@ -17,3 +17,4 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 export class FooterComponent {
   readonly currentYear = new Date().getFullYear();
 }
+
