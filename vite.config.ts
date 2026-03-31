@@ -7,6 +7,7 @@ import mkcert from 'vite-plugin-mkcert';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import autoprefixer from 'autoprefixer';
 import postcssPxtorem from 'postcss-pxtorem';
+import { VitePWA } from 'vite-plugin-pwa';
 
 const postcssPlugins: import('postcss').Plugin[] = [
   autoprefixer(),
@@ -43,6 +44,7 @@ export default defineConfig(() => {
       }
     },
     plugins: [
+      isHttps ? mkcert() : undefined,
       analog({
         inlineStylesExtension: 'scss',
         nitro: {
@@ -66,7 +68,35 @@ export default defineConfig(() => {
       }),
       tailwindcss(),
       tsconfigPaths(),
-      isHttps ? mkcert() : undefined
+      VitePWA({
+        // devOptions: {
+        //   enabled: process.env['NODE_ENV'] === 'development',
+        // },
+        registerType: 'autoUpdate',
+        includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
+        manifest: {
+          name: 'Parker Chen 的Analog實驗室',
+          short_name: 'Parker Chen\'s Analog Lab',
+          description: 'Parker Chen\'s Analog Lab',
+          theme_color: '#ffffff',
+          background_color: '#ffffff',
+          display: 'standalone',
+          icons: [
+            {
+              src: "/img/ico/web-app-manifest-192x192.png",
+              sizes: "192x192",
+              type: "image/png",
+              purpose: "maskable"
+            },
+            {
+              src: "/img/ico/web-app-manifest-512x512.png",
+              sizes: "512x512",
+              type: "image/png",
+              purpose: "maskable"
+            }
+          ]
+        }
+      })
     ],
     test: {
       globals: true,
