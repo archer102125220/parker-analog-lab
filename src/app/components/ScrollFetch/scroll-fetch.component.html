@@ -1,0 +1,70 @@
+<div class="scroll_fetch"
+     #scrollFetchRef
+     [ngStyle]="cssVariables()"
+     (mousedown)="handlePullStart($event)"
+     (mousemove)="handlePulling($event)"
+     (mouseup)="handlePullEnd()"
+     (mouseleave)="handlePullEnd()"
+     (touchstart)="handlePullStart($event)"
+     (touchmove)="handlePulling($event)"
+     (touchend)="handlePullEnd()"
+     (touchcancel)="handlePullEnd()"
+     (scroll)="handleScroll($event)">
+
+  @if (!refreshDisable) {
+    <div class="scroll_fetch-trigger">
+      @if (iosStyle) {
+        @if (!refreshing()) {
+          <p class="scroll_fetch-trigger-pull_label" [attr.css-is-visible]="isShowRefreshIcon()">
+            {{ isPulling() ? pullingLabel : pullLabel }}
+          </p>
+        } @else {
+          <div class="scroll_fetch-trigger-refreshing">
+            <div class="scroll_fetch-trigger-refreshing-loading_icon" css-refresh-animation="true"></div>
+            <p class="scroll_fetch-trigger-refreshing-label">{{ loadingLabel }}</p>
+          </div>
+        }
+      } @else {
+        <div class="scroll_fetch-trigger-icon_center">
+          @if (!hasRefreshIcon()) {
+            <div class="scroll_fetch-trigger-icon_center-icon"
+                 [attr.css-is-visible]="isShowRefreshIcon()"
+                 [attr.css-refresh-animation]="showMainAnimation()"></div>
+          }
+
+          @if (hasRefreshIcon()) {
+            <div class="scroll_fetch-trigger-icon_center-icon_img_bg"
+                 [attr.css-is-visible]="isShowRefreshIcon()"
+                 [attr.css-activate-animation]="refreshIconAnimation()">
+              <img class="scroll_fetch-trigger-icon_center-icon_img_bg-icon_img"
+                   [src]="computedRefreshIcon()"
+                   [attr.css-refresh-animation]="showMainAnimation()"
+                   width="23" height="23" alt="refresh" />
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+
+  @if (!isEmpty) {
+    <div class="scroll_fetch-container">
+      <ng-content></ng-content>
+    </div>
+  }
+
+  @if (isEmpty) {
+    <div class="scroll_fetch-empty">
+      <p class="scroll_fetch-empty-label">{{ emptyLabel }}</p>
+    </div>
+  }
+
+  <!-- Observer target for infinite scroll -->
+  <div #infinityTriggerRef style="height: 1px;"></div>
+
+  @if (!infinityDisable) {
+    <p class="scroll_fetch-infinity_label">
+      {{ !infinityEnd ? (infinityLoading() ? loadingLabel : infinityLabel) : infinityEndLabel }}
+    </p>
+  }
+</div>

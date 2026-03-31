@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-
+@import '@angular/material/prebuilt-themes/azure-blue.css';
 :root {
   /* Analog Lab Base Theme Variables (Refined Light Theme) */
   --app-bg-color: #f8fafc;        /* slate-50 (off-white) */

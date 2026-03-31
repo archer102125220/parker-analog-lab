@@ -1,0 +1,92 @@
+.scroll_fetch_page {
+  max-width: 90dvw;
+  margin: 0 auto;
+  padding: 1rem;
+  
+  &-description {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+
+    &-token_option, &-account_option {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-left: 8px;
+      
+      &-label {
+        margin: 0;
+        font-size: 14px;
+        color: var(--app-text-muted);
+      }
+    }
+  }
+
+  &-scroll_fetch {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px;
+
+      &-item {
+        padding: 15px;
+        border: 1px solid var(--app-border-color);
+        border-radius: 6px;
+        background: #fafafa;
+
+        p {
+          margin: 0 0 5px 0;
+        }
+
+        &-number {
+          font-weight: bold;
+          color: var(--app-primary-color);
+        }
+
+        &-name {
+          font-size: 16px;
+          font-weight: 500;
+        }
+
+        &-description {
+          font-size: 14px;
+          color: var(--app-text-muted);
+        }
+
+        &-html_link {
+          display: flex;
+          gap: 5px;
+          align-items: center;
+          font-size: 14px;
+          
+          p {
+            margin: 0;
+            color: var(--app-text-muted);
+          }
+          
+          &-repo_link {
+            color: #0366d6;
+            text-decoration: underline;
+            word-break: break-all;
+          }
+        }
+      }
+    }
+  }
+}
