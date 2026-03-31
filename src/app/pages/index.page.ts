@@ -30,7 +30,7 @@ interface FeatureCard {
           </div>
 
           <div class="home-hero__logo-wrapper">
-            <img class="home-hero__logo" src="/analog.svg" alt="Analog Logo" />
+            <img class="home-hero__logo" src="/img/logo/Analog.jsLab.v.09.webp" alt="Analog Logo" />
           </div>
 
           <h1 class="home-hero__title">{{ title() }}</h1>

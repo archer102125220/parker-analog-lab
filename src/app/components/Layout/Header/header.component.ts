@@ -8,7 +8,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     <header class="header">
       <div class="header-inner">
         <a class="header-logo" href="/">
-          <img class="header-logo-icon" src="/analog.svg" alt="Analog Logo" />
+          <img class="header-logo-icon" src="/img/logo/Analog.jsLab.v.09.webp" alt="Analog Logo" />
           <span class="header-logo-text">Parker 的 Analog實驗室</span>
         </a>
         <nav class="header-nav">
