@@ -8,7 +8,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-import { ScrollFetchComponent } from '../../components/ScrollFetch/scroll-fetch.component';
+import { ScrollFetchComponent } from '@/app/components/ScrollFetch/scroll-fetch.component';
 
 @Component({
   selector: 'app-scroll-fetch-demo-page',
