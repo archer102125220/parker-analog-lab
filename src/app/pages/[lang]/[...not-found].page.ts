@@ -1,21 +1,23 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-not-found-page',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, TranslocoPipe],
   template: `
     <div class="not_found_page">
       <div class="not_found_page__glow"></div>
       
       <div class="not_found_page__content">
-        <h1 class="not_found_page__title">{{ errorCode() }}</h1>
-        <h2 class="not_found_page__subtitle">{{ title() }}</h2>
-        <p class="not_found_page__desc">{{ description() }}</p>
+        <h1 class="not_found_page__title">{{ 'notFound.errorCode' | transloco }}</h1>
+        <h2 class="not_found_page__subtitle">{{ 'notFound.title' | transloco }}</h2>
+        <p class="not_found_page__desc">{{ 'notFound.description' | transloco }}</p>
 
-        <a class="not_found_page__btn" routerLink="/">
-          返回首頁
+        <a class="not_found_page__btn" [routerLink]="['/', lang()]">
+          {{ 'notFound.backToHome' | transloco }}
           <span class="not_found_page__btn-icon">→</span>
         </a>
       </div>
@@ -134,9 +136,8 @@ import { RouterLink } from '@angular/router';
   `
 })
 export class NotFoundPageComponent {
-  errorCode = signal('404');
-  title = signal('找不到這個頁面');
-  description = signal('抱歉，您嘗試訪問的頁面可能已被移除、重新命名或暫時無法使用。');
+  private readonly transloco = inject(TranslocoService);
+  readonly lang = toSignal(this.transloco.langChanges$, { initialValue: this.transloco.getActiveLang() });
 }
 
 export default NotFoundPageComponent;

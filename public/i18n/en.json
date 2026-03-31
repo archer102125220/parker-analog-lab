@@ -4,5 +4,145 @@
   },
   "footer": {
     "copyright": "© {{ year }} Parker Chen. All rights reserved."
+  },
+  "notFound": {
+    "errorCode": "404",
+    "title": "Page Not Found",
+    "description": "Sorry, the page you are trying to access may have been removed, renamed, or is temporarily unavailable.",
+    "backToHome": "Back to Home"
+  },
+  "home": {
+    "hero": {
+      "pillText": "Built on Analog 2.x & Angular 17+",
+      "title": "Parker Analog Lab",
+      "subtitle": "Explore the Infinite Possibilities of Angular and Analog",
+      "description": "An experimental project powered by Analog 2.x, integrating the latest Angular Signals to demonstrate modern frontend-backend connections and UI implementations.",
+      "learnMore": "Learn More",
+      "exploreComponents": "Explore Components"
+    },
+    "features": {
+      "title": "Feature Tour",
+      "description": "Explore all the cool features and technical implementations in this lab",
+      "items": {
+        "notes": {
+          "title": "Notion Notes",
+          "desc": "SEO and technical combat records from daily work and private research"
+        },
+        "about": {
+          "title": "About This Site",
+          "desc": "Understand the project's technical architecture, tech stack, and development philosophy"
+        },
+        "components": {
+          "title": "Custom Components",
+          "desc": "Explore practical examples of custom and third-party integrated components"
+        },
+        "directiveEffects": {
+          "title": "Directive Effects",
+          "desc": "View the implementation and usage of custom Directives"
+        },
+        "route": {
+          "title": "Routing Tests",
+          "desc": "Test Analog routing functionalities and features"
+        },
+        "cssDrawing": {
+          "title": "CSS Drawing Tests",
+          "desc": "Visual effects created with CSS and animation libraries"
+        },
+        "webAuthn": {
+          "title": "Biometrics (Native)",
+          "desc": "Native WebAuthn API biometric implementations"
+        },
+        "webCam": {
+          "title": "WebCam Tests",
+          "desc": "Application tests for WebCam video streaming"
+        },
+        "faceSwap": {
+          "title": "AI Integration",
+          "desc": "Machine learning related integrations"
+        },
+        "socketTest": {
+          "title": "Real-time Comm",
+          "desc": "WebSocket and WebRTC real-time communication tests"
+        }
+      }
+    }
+  },
+  "scrollFetch": {
+    "title": "ScrollFetch Demo (GitHub API)",
+    "githubLink": "GitHub for this page",
+    "form": {
+      "useDefaultToken": "Use Project Default GitHub Token",
+      "useInputToken": "Enter Custom GitHub Token",
+      "inputTokenLabel": "Enter Custom GitHub Token",
+      "useDefaultAccount": "Use Project Default GitHub Account",
+      "useInputAccount": "Enter Custom GitHub Account",
+      "inputAccountLabel": "Enter Custom GitHub Account",
+      "reload": "Reload"
+    },
+    "list": {
+      "emptyLabel": "No data available or invalid account",
+      "number": "No.{{ number }}",
+      "repoName": "Repo Name: {{ name }}",
+      "repoDesc": "Repo Description: {{ desc }}",
+      "repoLink": "Repo Link:"
+    }
+  },
+  "componentsPage": {
+    "header": {
+      "breadcrumb": "Return to Home",
+      "title": "Custom Components",
+      "subtitle": "Explore custom components and third-party integrations built with Angular 17+ Signals, covering use cases for UI, forms, layouts, and native APIs.",
+      "totalCount": "Total {{ count }} components",
+      "showingCount": "Showing {{ count }}"
+    },
+    "filter": {
+      "label": "Filter by category:",
+      "empty": "No components found in this category, please try another one."
+    },
+    "categories": {
+      "all": "All",
+      "ui": "UI Components",
+      "form": "Forms",
+      "layout": "Layouts",
+      "native": "Native APIs"
+    },
+    "items": {
+      "dialogModal": {
+        "title": "Dialog Modal",
+        "desc": "Dialog component supporting animation toggles, Esc key to close, and background overlay, based on Angular Signal state management."
+      },
+      "toast": {
+        "title": "Toast Notification",
+        "desc": "Stacked notification component supporting success, error, warning, and info types with auto-dismiss timers."
+      },
+      "dropdown": {
+        "title": "Dropdown Menu",
+        "desc": "Keyboard-operable dropdown menu supporting grouped options, icons, disabled states, and ARIA accessibility guidelines."
+      },
+      "imageUpload": {
+        "title": "Image Upload",
+        "desc": "Drag-and-drop upload component integrating previews, progress bars, file format validation, and multi-file queue uploads."
+      },
+      "formValidator": {
+        "title": "Form Validator",
+        "desc": "Custom validator collection based on Angular Reactive Forms, including email, national ID, mobile numbers, and other common formats in Taiwan."
+      },
+      "scrollFetch": {
+        "title": "ScrollFetch",
+        "desc": "Highly integrated component supporting Pull-to-refresh and Infinite Scroll."
+      },
+      "resizablePanel": {
+        "title": "Resizable Panel",
+        "desc": "Draggable resizable split panel component, suitable for dual-pane layouts like code editors and file managers."
+      },
+      "clipboardCopy": {
+        "title": "Clipboard Copy",
+        "desc": "One-click copy component integrating the Clipboard API, featuring successful copy animation feedback and fallback support."
+      },
+      "geolocation": {
+        "title": "Geolocation",
+        "desc": "Geolocation component based on Geolocation API, integrating reverse geocoding to display user location information."
+      }
+    }
   }
 }

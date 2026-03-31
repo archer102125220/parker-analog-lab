@@ -4,5 +4,145 @@
   },
   "footer": {
     "copyright": "© {{ year }} Parker Chen. All rights reserved."
+  },
+  "notFound": {
+    "errorCode": "404",
+    "title": "找不到這個頁面",
+    "description": "抱歉，您嘗試訪問的頁面可能已被移除、重新命名或暫時無法使用。",
+    "backToHome": "返回首頁"
+  },
+  "home": {
+    "hero": {
+      "pillText": "基於 Analog 2.x & Angular 17+ 打造",
+      "title": "Parker Analog Lab",
+      "subtitle": "探索 Angular 與 Analog 的無限可能",
+      "description": "一個以 Analog 2.x 為核心的實驗型專案，整合最新 Angular Signals，展示現代化前後端串接與 UI 實作。",
+      "learnMore": "了解更多",
+      "exploreComponents": "探索組件"
+    },
+    "features": {
+      "title": "功能導覽",
+      "description": "探索這個實驗室中所有酷炫的功能與技術實作",
+      "items": {
+        "notes": {
+          "title": "Notion 筆記",
+          "desc": "日常工作與私下研究的 SEO 及技術實戰紀錄"
+        },
+        "about": {
+          "title": "關於本站",
+          "desc": "了解專案的技術架構、使用的技術棧和開發理念"
+        },
+        "components": {
+          "title": "自製組件",
+          "desc": "探索自製組件和第三方整合組件的實作範例"
+        },
+        "directiveEffects": {
+          "title": "指令特效",
+          "desc": "查看自製 Directive 的實作和使用方式"
+        },
+        "route": {
+          "title": "路由相關測試",
+          "desc": "測試 Analog 路由相關功能和特性"
+        },
+        "cssDrawing": {
+          "title": "CSS 繪圖測試",
+          "desc": "使用 CSS 和動畫庫創作的視覺效果展示"
+        },
+        "webAuthn": {
+          "title": "生物辨識 (原生)",
+          "desc": "原生 WebAuthn API 的生物辨識實作"
+        },
+        "webCam": {
+          "title": "WebCam 測試",
+          "desc": "WebCam 視訊串流的應用測試"
+        },
+        "faceSwap": {
+          "title": "AI 整合",
+          "desc": "機器學習相關整合"
+        },
+        "socketTest": {
+          "title": "即時通訊",
+          "desc": "WebSocket 與 WebRTC 即時通訊測試"
+        }
+      }
+    }
+  },
+  "scrollFetch": {
+    "title": "ScrollFetch 展示 (GitHub API)",
+    "githubLink": "本頁GitHub",
+    "form": {
+      "useDefaultToken": "使用專案設定GitHub Token",
+      "useInputToken": "自行輸入GitHub Token",
+      "inputTokenLabel": "自行輸入GitHub Token",
+      "useDefaultAccount": "使用專案設定GitHub 帳號",
+      "useInputAccount": "自行輸入GitHub帳號",
+      "inputAccountLabel": "自行輸入GitHub帳號",
+      "reload": "重新載入"
+    },
+    "list": {
+      "emptyLabel": "無任何資料或帳號無效",
+      "number": "No.{{ number }}",
+      "repoName": "respo名稱: {{ name }}",
+      "repoDesc": "repo描述: {{ desc }}",
+      "repoLink": "repo連結:"
+    }
+  },
+  "componentsPage": {
+    "header": {
+      "breadcrumb": "返回首頁",
+      "title": "自製組件",
+      "subtitle": "探索使用 Angular 17+ Signals 所打造的自製組件與第三方整合實作，涵蓋 UI、表單、佈局與原生 API 各類場景。",
+      "totalCount": "共 {{ count }} 個組件",
+      "showingCount": "{{ count }} 個目前顯示"
+    },
+    "filter": {
+      "label": "分類篩選：",
+      "empty": "此分類暫無組件，請試試其他分類。"
+    },
+    "categories": {
+      "all": "全部",
+      "ui": "UI 元件",
+      "form": "表單",
+      "layout": "佈局",
+      "native": "原生 API"
+    },
+    "items": {
+      "dialogModal": {
+        "title": "Dialog Modal",
+        "desc": "支援動畫開關、鍵盤 Esc 關閉與背景遮罩的對話框組件，基於 Angular Signal 實作狀態管理。"
+      },
+      "toast": {
+        "title": "Toast 通知",
+        "desc": "堆疊式通知提示組件，支援 success / error / warning / info 四種類型與自動消失計時。"
+      },
+      "dropdown": {
+        "title": "Dropdown Menu",
+        "desc": "可鍵盤操作的下拉選單，支援分組選項、圖示與禁用狀態，符合 ARIA 無障礙規範。"
+      },
+      "imageUpload": {
+        "title": "Image Upload",
+        "desc": "拖放上傳組件，整合預覽、進度條與檔案格式驗證，支援多檔案對列上傳。"
+      },
+      "formValidator": {
+        "title": "Form Validator",
+        "desc": "基於 Angular Reactive Forms 的客製驗證器集合，包含 email、身份證字號、手機號碼等台灣常用格式。"
+      },
+      "scrollFetch": {
+        "title": "ScrollFetch",
+        "desc": "支援「下拉更新 (Pull-to-refresh)」與「底部無限加載 (Infinite Scroll)」的高整合型組件。"
+      },
+      "resizablePanel": {
+        "title": "Resizable Panel",
+        "desc": "可拖曳調整大小的分割面板組件，適用於程式碼編輯器、檔案管理器等雙側版面。"
+      },
+      "clipboardCopy": {
+        "title": "Clipboard Copy",
+        "desc": "整合 Clipboard API 的一鍵複製組件，帶複製成功動畫回饋，支援降級處理。"
+      },
+      "geolocation": {
+        "title": "Geolocation",
+        "desc": "基於 Geolocation API 的定位組件，整合反向地理編碼並顯示使用者所在地資訊。"
+      }
+    }
   }
 }

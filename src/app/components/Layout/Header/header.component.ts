@@ -20,7 +20,7 @@ const LANG_OPTIONS: LangOption[] = [
   template: `
     <header class="header">
       <div class="header-inner">
-        <a class="header-logo" href="/">
+        <a class="header-logo" [routerLink]="['/', activeLang()]">
           <img class="header-logo-icon" src="/img/logo/Analog.jsLab.v.09.webp" alt="Analog Logo" />
           <span class="header-logo-text">{{ 'header.title' | transloco }}</span>
         </a>

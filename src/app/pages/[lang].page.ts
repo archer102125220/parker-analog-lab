@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { RouterOutlet, ActivatedRoute, Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { map, distinctUntilChanged } from 'rxjs/operators';
-import { TranslocoService } from '@jsverse/transloco';
+import { TranslocoService, getBrowserLang } from '@jsverse/transloco';
 import { type RouteMeta } from '@analogjs/router';
 
 const AVAILABLE_LANGS = ['zh-TW', 'en'] as const;
@@ -14,11 +14,15 @@ function isAvailableLang(lang: string): lang is AvailableLang {
 
 export const routeMeta: RouteMeta = {
   canActivate: [
-    (route) => {
+    (route, state) => {
       const router = inject(Router);
       const lang = route.paramMap.get('lang') ?? '';
       if (!isAvailableLang(lang)) {
-        return router.createUrlTree(['/zh-TW']);
+        // 如果網址的第一個部分不符合語系，代表可能少加語系或路徑錯誤。
+        // 保留原網址路徑，前面加上瀏覽器的預設語系，讓未匹配的頁面正確掉進 [...not-found].page.ts
+        const browserLang = getBrowserLang() ?? '';
+        const targetLang = browserLang.startsWith('en') ? 'en' : 'zh-TW';
+        return router.parseUrl(`/${targetLang}${state.url}`);
       }
       return true;
     },

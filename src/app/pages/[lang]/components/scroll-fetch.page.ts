@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { ScrollFetchComponent } from '@/app/components/ScrollFetch/scroll-fetch.component';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-scroll-fetch-demo-page',
@@ -20,25 +21,26 @@ import { ScrollFetchComponent } from '@/app/components/ScrollFetch/scroll-fetch.
     MatRadioModule,
     MatInputModule,
     MatFormFieldModule,
-    ScrollFetchComponent
+    ScrollFetchComponent,
+    TranslocoPipe
   ],
   styleUrls: ['./scroll-fetch.page.scss'],
   template: `
     <section class="scroll_fetch_page">
-      <h1>ScrollFetch 展示 (GitHub API)</h1>
+      <h1>{{ 'scrollFetch.title' | transloco }}</h1>
       <div class="scroll_fetch_page-description">
         <a rel="noopener" target="_blank" href="https://github.com/archer102125220/parker-analog-lab/blob/main/src/app/pages/components/scroll-fetch.page.ts">
-          本頁GitHub
+          {{ 'scrollFetch.githubLink' | transloco }}
         </a>
       </div>
 
       <form class="scroll_fetch_page-form" (ngSubmit)="handleRefresh()">
         
         <mat-radio-group [(ngModel)]="userTokenType" name="tokenType">
-          <mat-radio-button value="default">使用專案設定GitHub Token</mat-radio-button>
+          <mat-radio-button value="default">{{ 'scrollFetch.form.useDefaultToken' | transloco }}</mat-radio-button>
           <mat-radio-button value="input">
             <div class="scroll_fetch_page-form-token_option">
-              <p class="scroll_fetch_page-form-token_option-label">自行輸入GitHub Token</p>
+              <p class="scroll_fetch_page-form-token_option-label">{{ 'scrollFetch.form.inputTokenLabel' | transloco }}</p>
               <mat-form-field appearance="fill" class="scroll_fetch_page-form-token_option-token_input">
                 <input matInput [(ngModel)]="userInputToken" name="inputToken" [disabled]="userTokenType !== 'input'" />
               </mat-form-field>
@@ -47,10 +49,10 @@ import { ScrollFetchComponent } from '@/app/components/ScrollFetch/scroll-fetch.
         </mat-radio-group>
 
         <mat-radio-group [(ngModel)]="userAccountType" name="accountType">
-          <mat-radio-button value="default">使用專案設定GitHub 帳號</mat-radio-button>
+          <mat-radio-button value="default">{{ 'scrollFetch.form.useDefaultAccount' | transloco }}</mat-radio-button>
           <mat-radio-button value="input">
             <div class="scroll_fetch_page-form-account_option">
-              <p class="scroll_fetch_page-form-account_option-label">自行輸入GitHub帳號</p>
+              <p class="scroll_fetch_page-form-account_option-label">{{ 'scrollFetch.form.inputAccountLabel' | transloco }}</p>
               <mat-form-field appearance="fill" class="scroll_fetch_page-form-account_option-account_input">
                 <input matInput [(ngModel)]="userInputAccount" name="inputAccount" [disabled]="userAccountType !== 'input'" />
               </mat-form-field>
@@ -58,7 +60,7 @@ import { ScrollFetchComponent } from '@/app/components/ScrollFetch/scroll-fetch.
           </mat-radio-button>
         </mat-radio-group>
 
-        <button mat-raised-button color="primary" type="submit" [disabled]="isLoading()">重新載入</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="isLoading()">{{ 'scrollFetch.form.reload' | transloco }}</button>
       </form>
 
       <app-scroll-fetch
@@ -70,17 +72,17 @@ import { ScrollFetchComponent } from '@/app/components/ScrollFetch/scroll-fetch.
         [iosStyle]="false"
         [refreshDisable]="false"
         [isEmpty]="displayDataList().length === 0 && !isLoading()"
-        emptyLabel="無任何資料或帳號無效"
+        [emptyLabel]="'scrollFetch.list.emptyLabel' | transloco"
         (onRefresh)="handleRefresh()"
         (onInfinityFetch)="handleInfinityFetch()"
       >
         <div class="scroll_fetch_page-scroll_fetch-content">
           <div *ngFor="let item of displayDataList(); let i = index" class="scroll_fetch_page-scroll_fetch-content-item">
-            <p class="scroll_fetch_page-scroll_fetch-content-item-number">No.{{ i + 1 }}</p>
-            <p class="scroll_fetch_page-scroll_fetch-content-item-name">respo名稱: {{ item.name }}</p>
-            <p class="scroll_fetch_page-scroll_fetch-content-item-description">repo描述: {{ item.description }}</p>
+            <p class="scroll_fetch_page-scroll_fetch-content-item-number">{{ 'scrollFetch.list.number' | transloco: { number: i + 1 } }}</p>
+            <p class="scroll_fetch_page-scroll_fetch-content-item-name">{{ 'scrollFetch.list.repoName' | transloco: { name: item.name } }}</p>
+            <p class="scroll_fetch_page-scroll_fetch-content-item-description">{{ 'scrollFetch.list.repoDesc' | transloco: { desc: item.description } }}</p>
             <div class="scroll_fetch_page-scroll_fetch-content-item-html_link">
-              <p>repo連結:</p>
+              <p>{{ 'scrollFetch.list.repoLink' | transloco }}</p>
               <a class="scroll_fetch_page-scroll_fetch-content-item-html_link-repo_link" target="_blank" [href]="item.html_url">
                 {{ item.html_url }}
               </a>

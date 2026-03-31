@@ -5,19 +5,21 @@
  * 將 Template、Styles (SCSS) 與 TypeScript (Signals 邏輯) 完全封裝在同一份檔案中。
  * 這是 Analog 專案中，不借助尾綴 .analog，一樣能達到高內聚力開發體驗的最佳實踐。
  */
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 interface FeatureCard {
-  title: string;
-  desc: string;
+  titleKey: string;
+  descKey: string;
   link: string;
 }
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, TranslocoPipe],
   template: `
     <div class="home_page">
       <div class="home_page__glow"></div>
@@ -26,39 +28,39 @@ interface FeatureCard {
         <div class="home-hero__content">
           <div class="home-hero__pill">
             <span class="home-hero__pill-icon">✨</span> 
-            <span>基於 Analog 2.x & Angular 17+ 打造</span>
+            <span>{{ 'home.hero.pillText' | transloco }}</span>
           </div>
 
           <div class="home-hero__logo-wrapper">
             <img class="home-hero__logo" src="/img/logo/Analog.jsLab.v.09.webp" alt="Analog Logo" />
           </div>
 
-          <h1 class="home-hero__title">{{ title() }}</h1>
-          <h2 class="home-hero__subtitle">{{ subtitle() }}</h2>
-          <p class="home-hero__desc">{{ description() }}</p>
+          <h1 class="home-hero__title">{{ 'home.hero.title' | transloco }}</h1>
+          <h2 class="home-hero__subtitle">{{ 'home.hero.subtitle' | transloco }}</h2>
+          <p class="home-hero__desc">{{ 'home.hero.description' | transloco }}</p>
 
           <div class="home-hero__actions">
-            <a class="home-hero__btn home-hero__btn--primary" routerLink="/about">
-              了解更多
+            <a class="home-hero__btn home-hero__btn--primary" [routerLink]="['/', lang(), 'about']">
+              {{ 'home.hero.learnMore' | transloco }}
               <span class="home-hero__btn-icon">→</span>
             </a>
-            <a class="home-hero__btn home-hero__btn--outline" routerLink="/components">探索組件</a>
+            <a class="home-hero__btn home-hero__btn--outline" [routerLink]="['/', lang(), 'components']">{{ 'home.hero.exploreComponents' | transloco }}</a>
           </div>
         </div>
       </section>
 
       <section class="home-features">
         <div class="home-features__header">
-          <h3 class="home-features__title">功能導覽</h3>
-          <p class="home-features__desc">探索這個實驗室中所有酷炫的功能與技術實作</p>
+          <h3 class="home-features__title">{{ 'home.features.title' | transloco }}</h3>
+          <p class="home-features__desc">{{ 'home.features.description' | transloco }}</p>
         </div>
         
         <div class="home-features__grid">
-          @for (feature of features(); track feature.title) {
-            <a class="home-feature-card" [routerLink]="feature.link">
+          @for (feature of features(); track feature.titleKey) {
+            <a class="home-feature-card" [routerLink]="['/', lang(), feature.link]">
               <div class="home-feature-card__content">
-                <h4 class="home-feature-card__title">{{ feature.title }}</h4>
-                <p class="home-feature-card__desc">{{ feature.desc }}</p>
+                <h4 class="home-feature-card__title">{{ feature.titleKey | transloco }}</h4>
+                <p class="home-feature-card__desc">{{ feature.descKey | transloco }}</p>
               </div>
               <div class="home-feature-card__footer">
                 <span class="home-feature-card__arrow">→</span>
@@ -93,7 +95,7 @@ interface FeatureCard {
       max-width: 900px;
       max-height: 900px;
       background: radial-gradient(circle, rgba(221, 0, 49, 0.04) 0%, rgba(248, 250, 252, 0) 65%);
-      z-index: -1;
+      // z-index: -1;
       pointer-events: none;
     }
 
@@ -134,8 +136,8 @@ interface FeatureCard {
       }
 
       &__logo-wrapper {
-        width: 88px;
-        height: 88px;
+        width: 98px;
+        height: 98px;
         background: #ffffff;
         border: 1px solid var(--app-border-color);
         border-radius: 20px;
@@ -148,8 +150,8 @@ interface FeatureCard {
       }
 
       &__logo {
-        width: 54px;
-        height: 54px;
+        width: 80px;
+        height: 80px;
       }
 
       &__title {
@@ -389,21 +391,20 @@ interface FeatureCard {
   `
 })
 export class HomePageComponent {
-  title = signal('Parker Analog Lab');
-  subtitle = signal('探索 Angular 與 Analog 的無限可能');
-  description = signal('一個以 Analog 2.x 為核心的實驗型專案，整合最新 Angular Signals，展示現代化前後端串接與 UI 實作。');
+  private readonly transloco = inject(TranslocoService);
+  readonly lang = toSignal(this.transloco.langChanges$, { initialValue: this.transloco.getActiveLang() });
 
   features = signal<FeatureCard[]>([
-    { title: 'Notion 筆記', desc: '日常工作與私下研究的 SEO 及技術實戰紀錄', link: '/notes' },
-    { title: '關於本站', desc: '了解專案的技術架構、使用的技術棧和開發理念', link: '/about' },
-    { title: '自製組件', desc: '探索自製組件和第三方整合組件的實作範例', link: '/components' },
-    { title: '指令特效', desc: '查看自製 Directive 的實作和使用方式', link: '/directive-effects' },
-    { title: '路由相關測試', desc: '測試 Analog 路由相關功能和特性', link: '/route' },
-    { title: 'CSS 繪圖測試', desc: '使用 CSS 和動畫庫創作的視覺效果展示', link: '/css-drawing' },
-    { title: '生物辨識 (原生)', desc: '原生 WebAuthn API 的生物辨識實作', link: '/web-authn' },
-    { title: 'WebCam 測試', desc: 'WebCam 視訊串流的應用測試', link: '/web-cam' },
-    { title: 'AI 整合', desc: '機器學習相關整合', link: '/face-swap' },
-    { title: '即時通訊', desc: 'WebSocket 與 WebRTC 即時通訊測試', link: '/socket-test' }
+    { titleKey: 'home.features.items.notes.title', descKey: 'home.features.items.notes.desc', link: 'notes' },
+    { titleKey: 'home.features.items.about.title', descKey: 'home.features.items.about.desc', link: 'about' },
+    { titleKey: 'home.features.items.components.title', descKey: 'home.features.items.components.desc', link: 'components' },
+    { titleKey: 'home.features.items.directiveEffects.title', descKey: 'home.features.items.directiveEffects.desc', link: 'directive-effects' },
+    { titleKey: 'home.features.items.route.title', descKey: 'home.features.items.route.desc', link: 'route' },
+    { titleKey: 'home.features.items.cssDrawing.title', descKey: 'home.features.items.cssDrawing.desc', link: 'css-drawing' },
+    { titleKey: 'home.features.items.webAuthn.title', descKey: 'home.features.items.webAuthn.desc', link: 'web-authn' },
+    { titleKey: 'home.features.items.webCam.title', descKey: 'home.features.items.webCam.desc', link: 'web-cam' },
+    { titleKey: 'home.features.items.faceSwap.title', descKey: 'home.features.items.faceSwap.desc', link: 'face-swap' },
+    { titleKey: 'home.features.items.socketTest.title', descKey: 'home.features.items.socketTest.desc', link: 'socket-test' }
   ]);
 }
 
