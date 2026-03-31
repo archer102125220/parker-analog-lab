@@ -27,7 +27,7 @@ import { ScrollFetchComponent } from '../../components/ScrollFetch/scroll-fetch.
     <section class="scroll_fetch_page">
       <h1>ScrollFetch 展示 (GitHub API)</h1>
       <div class="scroll_fetch_page-description">
-        <a rel="noopener" target="_blank" href="https://github.com/archer102125220/parker-analog-lab">
+        <a rel="noopener" target="_blank" href="https://github.com/archer102125220/parker-analog-lab/blob/main/src/app/pages/components/scroll-fetch.page.ts">
           本頁GitHub
         </a>
       </div>
