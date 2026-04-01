@@ -24,7 +24,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
     ScrollFetchComponent,
     TranslocoPipe
   ],
-  styleUrls: ['./scroll-fetch.page.scss'],
+  styleUrls: ['./index.page.scss'],
   template: `
     <section class="scroll_fetch_page">
       <h1>{{ 'scrollFetch.title' | transloco }}</h1>
@@ -93,7 +93,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
     </section>
   `
 })
-export default class ScrollFetchDemoPageComponent implements OnInit {
+export class ScrollFetchDemoPage implements OnInit {
   private http = inject(HttpClient);
 
   // Form states
@@ -167,3 +167,4 @@ export default class ScrollFetchDemoPageComponent implements OnInit {
     });
   }
 }
+export default ScrollFetchDemoPage;

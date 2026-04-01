@@ -88,7 +88,7 @@ interface ComponentItem {
   `,
   styleUrl: './index.page.scss',
 })
-export class ComponentsPageComponent {
+export class ComponentsPage {
   private readonly transloco = inject(TranslocoService);
   readonly lang = toSignal(this.transloco.langChanges$, { initialValue: this.transloco.getActiveLang() });
 
@@ -103,69 +103,26 @@ export class ComponentsPageComponent {
   ]);
 
   readonly allComponents = signal<ComponentItem[]>([
-    {
-      id: 'dialogModal',
-      icon: '🪟',
-      badge: 'ui',
-      link: '/components/dialog-modal',
-      category: 'ui',
-    },
-    {
-      id: 'toast',
-      icon: '🔔',
-      badge: 'ui',
-      link: '/components/toast',
-      category: 'ui',
-    },
-    {
-      id: 'dropdown',
-      icon: '📋',
-      badge: 'ui',
-      link: '/components/dropdown',
-      category: 'ui',
-    },
-    {
-      id: 'imageUpload',
-      icon: '🖼️',
-      badge: 'form',
-      link: '/components/image-upload',
-      category: 'form',
-    },
-    {
-      id: 'formValidator',
-      icon: '✅',
-      badge: 'form',
-      link: '/components/form-validator',
-      category: 'form',
-    },
-    {
-      id: 'scrollFetch',
-      icon: '🔄',
-      badge: 'ui',
-      link: '/components/scroll-fetch',
-      category: 'ui',
-    },
-    {
-      id: 'resizablePanel',
-      icon: '↔️',
-      badge: 'layout',
-      link: '/components/resizable-panel',
-      category: 'layout',
-    },
-    {
-      id: 'clipboardCopy',
-      icon: '📋',
-      badge: 'native',
-      link: '/components/clipboard',
-      category: 'native',
-    },
-    {
-      id: 'geolocation',
-      icon: '📍',
-      badge: 'native',
-      link: '/components/geolocation',
-      category: 'native',
-    },
+    { id: 'bannerDemo', icon: '🏳️', badge: 'ui', link: '/components/banner-demo', category: 'ui' },
+    { id: 'countdownTest', icon: '⏱️', badge: 'ui', link: '/components/countdown-test', category: 'ui' },
+    { id: 'dialog', icon: '🪟', badge: 'ui', link: '/components/dialog', category: 'ui' },
+    { id: 'drawer', icon: '➡️', badge: 'ui', link: '/components/drawer', category: 'ui' },
+    { id: 'enterLabel', icon: '⌨️', badge: 'form', link: '/components/enter-label', category: 'form' },
+    { id: 'goTop', icon: '⬆️', badge: 'ui', link: '/components/go-top', category: 'ui' },
+    { id: 'imageUploadTest', icon: '🖼️', badge: 'form', link: '/components/image-upload-test', category: 'form' },
+    { id: 'message', icon: '💬', badge: 'ui', link: '/components/message', category: 'ui' },
+    { id: 'phoneInput', icon: '📱', badge: 'form', link: '/components/phone-input', category: 'form' },
+    { id: 'qrCodeTest', icon: '🔲', badge: 'ui', link: '/components/qr-code-test', category: 'ui' },
+    { id: 'scrollFetch', icon: '🔄', badge: 'ui', link: '/components/scroll-fetch', category: 'ui' },
+    { id: 'selector', icon: '📋', badge: 'form', link: '/components/selector', category: 'form' },
+    { id: 'skeletonLoader', icon: '💀', badge: 'ui', link: '/components/skeleton-loader', category: 'ui' },
+    { id: 'slideInPanel', icon: '↔️', badge: 'layout', link: '/components/slide-in-panel', category: 'layout' },
+    { id: 'swiperJs', icon: '🎠', badge: 'ui', link: '/components/swiper-js', category: 'ui' },
+    { id: 'switchButton', icon: '🎚️', badge: 'form', link: '/components/switch-button', category: 'form' },
+    { id: 'tabTest', icon: '📑', badge: 'layout', link: '/components/tab-test', category: 'layout' },
+    { id: 'virtualScroller', icon: '📜', badge: 'ui', link: '/components/virtual-scroller', category: 'ui' },
+    { id: 'wangEditorTest', icon: '📝', badge: 'form', link: '/components/wang-editor-test', category: 'form' },
+    { id: 'youtubeTest', icon: '📺', badge: 'native', link: '/components/youtube-test', category: 'native' },
   ]);
 
   readonly filteredComponents = computed(() => {
@@ -181,4 +138,4 @@ export class ComponentsPageComponent {
   }
 }
 
-export default ComponentsPageComponent;
+export default ComponentsPage;

@@ -107,41 +107,85 @@
       "native": "原生 API"
     },
     "items": {
-      "dialogModal": {
+      "bannerDemo": {
+        "title": "Banner 橫幅",
+        "desc": "展示各種類型橫幅佈局的元件測試。"
+      },
+      "countdownTest": {
+        "title": "倒數計時",
+        "desc": "倒數計時元件與時間計算的測試。"
+      },
+      "dialog": {
         "title": "Dialog Modal",
         "desc": "支援動畫開關、鍵盤 Esc 關閉與背景遮罩的對話框組件，基於 Angular Signal 實作狀態管理。"
       },
-      "toast": {
-        "title": "Toast 通知",
-        "desc": "堆疊式通知提示組件，支援 success / error / warning / info 四種類型與自動消失計時。"
+      "drawer": {
+        "title": "抽屜元件 (Drawer)",
+        "desc": "從邊緣滑出的抽屜元件實作測試。"
       },
-      "dropdown": {
-        "title": "Dropdown Menu",
-        "desc": "可鍵盤操作的下拉選單，支援分組選項、圖示與禁用狀態，符合 ARIA 無障礙規範。"
+      "enterLabel": {
+        "title": "Enter 標籤",
+        "desc": "輸入文字後按下 Enter 新增標籤的表單元件。"
       },
-      "imageUpload": {
-        "title": "Image Upload",
+      "goTop": {
+        "title": "回到頂部 (Go Top)",
+        "desc": "提供平滑捲動回到頁首功能的元件"
+      },
+      "imageUploadTest": {
+        "title": "圖片上傳 (Image Upload)",
         "desc": "拖放上傳組件，整合預覽、進度條與檔案格式驗證，支援多檔案對列上傳。"
       },
-      "formValidator": {
-        "title": "Form Validator",
-        "desc": "基於 Angular Reactive Forms 的客製驗證器集合，包含 email、身份證字號、手機號碼等台灣常用格式。"
+      "message": {
+        "title": "全局訊息 (Message)",
+        "desc": "各類通用訊息提示元件測試。"
+      },
+      "phoneInput": {
+        "title": "電話輸入框 (Phone Input)",
+        "desc": "具備國碼選擇與基礎格式檢驗的電話輸入框。"
+      },
+      "qrCodeTest": {
+        "title": "QR Code 測試",
+        "desc": "動態產生 QR Code 與相關應用的實作範例。"
       },
       "scrollFetch": {
         "title": "ScrollFetch",
         "desc": "支援「下拉更新 (Pull-to-refresh)」與「底部無限加載 (Infinite Scroll)」的高整合型組件。"
       },
-      "resizablePanel": {
-        "title": "Resizable Panel",
-        "desc": "可拖曳調整大小的分割面板組件，適用於程式碼編輯器、檔案管理器等雙側版面。"
+      "selector": {
+        "title": "選擇器 (Selector)",
+        "desc": "各類自訂樣式選擇器與搜尋下拉選單的實作。"
       },
-      "clipboardCopy": {
-        "title": "Clipboard Copy",
-        "desc": "整合 Clipboard API 的一鍵複製組件，帶複製成功動畫回饋，支援降級處理。"
+      "skeletonLoader": {
+        "title": "骨架屏 (Skeleton)",
+        "desc": "資料載入前提供視覺佔位的骨架屏效果元件。"
       },
-      "geolocation": {
-        "title": "Geolocation",
-        "desc": "基於 Geolocation API 的定位組件，整合反向地理編碼並顯示使用者所在地資訊。"
+      "slideInPanel": {
+        "title": "滑動面板 (Slide-in Panel)",
+        "desc": "支援多方向滑出，適合呈現次要資訊的面板元件。"
+      },
+      "swiperJs": {
+        "title": "Swiper 輪播",
+        "desc": "整合 Swiper.js 第三方套件的輪播圖測試元件。"
+      },
+      "switchButton": {
+        "title": "開關按鈕 (Switch)",
+        "desc": "實作平滑動畫效果的自訂布林值開關元件。"
+      },
+      "tabTest": {
+        "title": "頁籤測試 (Tab)",
+        "desc": "透過 Signal 管理狀態的分組頁籤元件。"
+      },
+      "virtualScroller": {
+        "title": "虛擬滾動 (Virtual Scroller)",
+        "desc": "優化海量清單渲染效能的虛擬滾動元件實作。"
+      },
+      "wangEditorTest": {
+        "title": "富文本編輯 (Wang Editor)",
+        "desc": "整合 Wang Editor 的第三方富文本編輯器測試。"
+      },
+      "youtubeTest": {
+        "title": "YouTube 播放器",
+        "desc": "整合 YouTube iframe API 進行各類播放控制測試。"
       }
     }
   }

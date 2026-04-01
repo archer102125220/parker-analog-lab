@@ -107,41 +107,85 @@
       "native": "Native APIs"
     },
     "items": {
-      "dialogModal": {
+      "bannerDemo": {
+        "title": "Banner Demo",
+        "desc": "Component testing various banner layouts and styles."
+      },
+      "countdownTest": {
+        "title": "Countdown Timer",
+        "desc": "Countdown timer component testing."
+      },
+      "dialog": {
         "title": "Dialog Modal",
         "desc": "Dialog component supporting animation toggles, Esc key to close, and background overlay, based on Angular Signal state management."
       },
-      "toast": {
-        "title": "Toast Notification",
-        "desc": "Stacked notification component supporting success, error, warning, and info types with auto-dismiss timers."
+      "drawer": {
+        "title": "Drawer",
+        "desc": "Drawer component that slides in from the edge of the screen."
       },
-      "dropdown": {
-        "title": "Dropdown Menu",
-        "desc": "Keyboard-operable dropdown menu supporting grouped options, icons, disabled states, and ARIA accessibility guidelines."
+      "enterLabel": {
+        "title": "Enter Label",
+        "desc": "Form component that adds a label after typing and pressing Enter."
       },
-      "imageUpload": {
+      "goTop": {
+        "title": "Go Top",
+        "desc": "Smooth scrolling component to return to the top of the page."
+      },
+      "imageUploadTest": {
         "title": "Image Upload",
         "desc": "Drag-and-drop upload component integrating previews, progress bars, file format validation, and multi-file queue uploads."
       },
-      "formValidator": {
-        "title": "Form Validator",
-        "desc": "Custom validator collection based on Angular Reactive Forms, including email, national ID, mobile numbers, and other common formats in Taiwan."
+      "message": {
+        "title": "Message",
+        "desc": "Global notification and message generic components."
+      },
+      "phoneInput": {
+        "title": "Phone Input",
+        "desc": "Phone input box with country code selection and basic format validation."
+      },
+      "qrCodeTest": {
+        "title": "QR Code Test",
+        "desc": "Dynamic QR Code generation and practical implementation examples."
       },
       "scrollFetch": {
         "title": "ScrollFetch",
         "desc": "Highly integrated component supporting Pull-to-refresh and Infinite Scroll."
       },
-      "resizablePanel": {
-        "title": "Resizable Panel",
-        "desc": "Draggable resizable split panel component, suitable for dual-pane layouts like code editors and file managers."
+      "selector": {
+        "title": "Selector",
+        "desc": "Custom styled selector and search dropdown implementations."
       },
-      "clipboardCopy": {
-        "title": "Clipboard Copy",
-        "desc": "One-click copy component integrating the Clipboard API, featuring successful copy animation feedback and fallback support."
+      "skeletonLoader": {
+        "title": "Skeleton Loader",
+        "desc": "Skeleton screen effect component for visual placeholder before data loading."
       },
-      "geolocation": {
-        "title": "Geolocation",
-        "desc": "Geolocation component based on Geolocation API, integrating reverse geocoding to display user location information."
+      "slideInPanel": {
+        "title": "Slide-in Panel",
+        "desc": "Panel component supporting multi-directional slide-in, suitable for presenting secondary information."
+      },
+      "swiperJs": {
+        "title": "Swiper JS",
+        "desc": "Carousel component integrating Swiper.js third-party library."
+      },
+      "switchButton": {
+        "title": "Switch Button",
+        "desc": "Custom boolean switch component with smooth animation effects."
+      },
+      "tabTest": {
+        "title": "Tab Test",
+        "desc": "Grouped tab component with state managed by Signals."
+      },
+      "virtualScroller": {
+        "title": "Virtual Scroller",
+        "desc": "Virtual scrolling component to optimize rendering performance for massive lists."
+      },
+      "wangEditorTest": {
+        "title": "Wang Editor Test",
+        "desc": "Third-party rich text editor test integrating Wang Editor."
+      },
+      "youtubeTest": {
+        "title": "YouTube Test",
+        "desc": "Playback control tests integrating YouTube iframe API."
       }
     }
   }

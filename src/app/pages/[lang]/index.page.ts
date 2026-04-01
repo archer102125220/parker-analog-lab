@@ -390,7 +390,7 @@ interface FeatureCard {
     }
   `
 })
-export class HomePageComponent {
+export class HomePage {
   private readonly transloco = inject(TranslocoService);
   readonly lang = toSignal(this.transloco.langChanges$, { initialValue: this.transloco.getActiveLang() });
 
@@ -409,5 +409,5 @@ export class HomePageComponent {
 }
 
 // Analog 檔案路由所需的預設匯出
-export default HomePageComponent;
+export default HomePage;
 
