@@ -11,6 +11,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ScrollFetchComponent } from '@/app/components/ScrollFetch/scroll-fetch.component';
 import { TranslocoPipe } from '@jsverse/transloco';
 
+interface GithubRepo {
+  name: string;
+  description: string;
+  html_url: string;
+}
+
 @Component({
   selector: 'app-scroll-fetch-demo-page',
   standalone: true,
@@ -103,11 +109,11 @@ export class ScrollFetchDemoPage implements OnInit {
   userInputAccount = '';
 
   // Data states
-  displayDataList = signal<any[]>([]);
+  displayDataList = signal<GithubRepo[]>([]);
   isLoading = signal<boolean>(false);
   hasNext = signal<boolean>(true);
   page = signal<number>(1);
-  error = signal<any>(null);
+  error = signal<unknown>(null);
 
   token = computed(() => this.userTokenType === 'default' ? import.meta.env['VITE_GITHUB_TOKEN'] || '' : this.userInputToken);
   account = computed(() => this.userAccountType === 'default' ? import.meta.env['VITE_GITHUB_ACCOUNT'] || '' : this.userInputAccount);
@@ -144,7 +150,7 @@ export class ScrollFetchDemoPage implements OnInit {
       headers = headers.set('Authorization', `Bearer ${tkn}`);
     }
 
-    this.http.get<any[]>(`https://api.github.com/users/${acc}/repos`, {
+    this.http.get<GithubRepo[]>(`https://api.github.com/users/${acc}/repos`, {
       headers,
       params: { per_page: '10', page: p.toString() },
       observe: 'response'
