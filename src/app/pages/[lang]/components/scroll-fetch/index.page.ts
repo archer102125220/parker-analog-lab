@@ -162,12 +162,15 @@ export class ScrollFetchDemoPage implements OnInit {
         if (response.body && Array.isArray(response.body)) {
            this.displayDataList.update(list => [...list, ...response.body!]);
         }
-        this.isLoading.set(false);
+        // this.isLoading.set(false);
       },
       error: (err) => {
         console.error('GitHub API error', err);
         this.error.set(err);
         this.hasNext.set(false);
+        // this.isLoading.set(false);
+      },
+      complete:() => {
         this.isLoading.set(false);
       }
     });
