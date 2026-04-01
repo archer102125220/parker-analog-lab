@@ -11,7 +11,7 @@ import {
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideFileRouter, requestContextInterceptor } from '@analogjs/router';
 import { provideTransloco } from '@jsverse/transloco';
-import { TranslocoHttpLoader } from './transloco-loader';
+import { TranslocoHttpLoader } from './i18n/transloco-loader';
 
 export const appConfig: ApplicationConfig = {
   providers: [

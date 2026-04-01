@@ -3,7 +3,7 @@ import { provideServerRendering } from '@angular/platform-server';
 import { provideTranslocoLoader } from '@jsverse/transloco';
 
 import { appConfig } from './app.config';
-import { TranslocoServerLoader } from './transloco-loader.server';
+import { TranslocoServerLoader } from './i18n/transloco-loader.server';
 
 const serverConfig: ApplicationConfig = {
   providers: [
