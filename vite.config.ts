@@ -8,6 +8,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import autoprefixer from 'autoprefixer';
 import postcssPxtorem from 'postcss-pxtorem';
 import { VitePWA } from 'vite-plugin-pwa';
+import glsl from 'vite-plugin-glsl';
 
 const postcssPlugins: import('postcss').Plugin[] = [
   autoprefixer(),
@@ -45,6 +46,7 @@ export default defineConfig(() => {
     },
     plugins: [
       isHttps ? mkcert() : undefined,
+      glsl(),
       analog({
         inlineStylesExtension: 'scss',
         nitro: {
