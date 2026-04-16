@@ -9,5 +9,5 @@
     "declaration": true
   },
   "files": ["src/test-setup.ts"],
-  "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
+  "include": ["src/**/*.spec.ts", "src/**/*.d.ts", "assets/**/*.spec.ts"]
 }

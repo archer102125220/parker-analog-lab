@@ -65,7 +65,7 @@ export async function loadModels() {
   // Determine models path based on environment
   let modelsPath: string;
 
-  if (process.env.NODE_ENV === 'production') {
+  if (import.meta.dev === false) {
     // Production: models are in public/ai_models
     modelsPath = join(process.cwd(), 'public/ai_models');
   } else {
@@ -73,7 +73,7 @@ export async function loadModels() {
     modelsPath = join(process.cwd(), 'public/ai_models');
   }
 
-  console.log('Environment:', process.env.NODE_ENV);
+  console.log('Environment:', import.meta.dev ? 'development|test' : 'production');
   console.log('Loading face-api models from:', modelsPath);
 
   try {

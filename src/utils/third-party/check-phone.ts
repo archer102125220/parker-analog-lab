@@ -1,6 +1,5 @@
 import { isValidPhoneNumber, CountryCode as LibCountryCode } from 'libphonenumber-js';
-import PHONE_AREA_CODE from '@/assets/phoneCountryCode';
-import type { CountryCode } from '@/assets/phoneCountryCode';
+import PHONE_AREA_CODE, { type CountryCode } from '@assets/phoneCountryCode';
 
 export interface CheckPhoneResult {
   countryCodeError: boolean;

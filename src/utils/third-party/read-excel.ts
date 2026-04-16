@@ -25,7 +25,7 @@ export function handleReadExcel(): Promise<Result> {
         '.csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel'
       );
       input.addEventListener('change', () => {
-        const file = input.files?.[0] || new ArrayBuffer();
+        const file = input.files?.[0] || new ArrayBuffer(0);
         readXlsxFile(file).then((rows) => {
           resolve({ excel: rows, files: file });
         });
