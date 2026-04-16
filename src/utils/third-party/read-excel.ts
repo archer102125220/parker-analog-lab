@@ -1,12 +1,10 @@
-import _readXlsxFile from 'read-excel-file';
-import type { Row, ParsedObjectsResult } from 'read-excel-file';
+import { readSheet as _readXlsxFile } from 'read-excel-file/universal';
+import type { Row, ParseDataResult } from 'read-excel-file/universal';
 
 type readXlsxFileType = typeof _readXlsxFile;
 
 interface Result {
-  // excel?: ParsedObjectsResult<{ [key: string]: any }>>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  excel?: ParsedObjectsResult<{ [key: string]: any }> | Row[];
+  excel?: ParseDataResult<Record<string, unknown>> | Row[];
   files?: File | ArrayBuffer;
 }
 

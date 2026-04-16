@@ -64,5 +64,3 @@ export declare module 'fido2-lib' {
   ): Promise<Map<any, any>>;
 }
 
-// export declare module 'read-excel-file'
-
